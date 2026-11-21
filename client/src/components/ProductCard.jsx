@@ -1,12 +1,25 @@
+import { useState } from "react";
+
 function ProductCard(props) {
+  const [count, setCount] = useState(0);
+
+  function addToCart() {
+    setCount(count + 1);
+  }
+
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-      <h2 className="text-xl font-bold text-gray-800">{props.name}</h2>
+    <div className="rounded-xl border bg-white p-5 shadow-sm">
+      <h2 className="text-xl font-bold">{props.name}</h2>
 
-      <p className="mt-2 text-lg text-green-700">Price: ₹{props.price}</p>
+      <p className="mt-2 text-green-700">Price: ₹{props.price}</p>
 
-      <button className="mt-4 rounded-lg bg-slate-900 px-4 py-2 text-white hover:bg-slate-700">
-        View Product
+      <p className="mt-2">Added: {count}</p>
+
+      <button
+        onClick={addToCart}
+        className="mt-4 rounded-lg bg-slate-900 px-4 py-2 text-white"
+      >
+        Add to Cart
       </button>
     </div>
   );

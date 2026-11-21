@@ -17,7 +17,7 @@ function App() {
       <HeroSection />
 
       <section className="bg-gray-50 px-8 py-12">
-        <h1 className="mb-8 text-3xl font-bold text-gray-900">Our Products</h1>
+        <h1 className="mb-8 text-3xl font-bold">Our Products</h1>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
