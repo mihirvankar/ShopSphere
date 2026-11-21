@@ -3,7 +3,9 @@ function ProductCard(props) {
     <div className="rounded-xl border bg-white p-5 shadow-sm">
       <h2 className="text-xl font-bold">{props.name}</h2>
 
-      <p className="mt-2 text-green-700">Price: ₹{props.price}</p>
+      <p className="mt-2 text-green-700">
+        Price: ₹{props.price.toLocaleString("en-IN")}
+      </p>
 
       <button
         onClick={props.addToCart}
