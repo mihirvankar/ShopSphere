@@ -1,8 +1,15 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ProductCard from "./components/ProductCard";
 
 function App() {
+  const [cartCount, setCartCount] = useState(0);
+
+  function addToCart() {
+    setCartCount((previousCount) => previousCount + 1);
+  }
+
   const products = [
     { id: 1, name: "iPhone", price: 70000 },
     { id: 2, name: "Keyboard", price: 1500 },
@@ -12,8 +19,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
-
+      <Navbar cartCount={cartCount} />
       <HeroSection />
 
       <section className="bg-gray-50 px-8 py-12">
@@ -25,6 +31,7 @@ function App() {
               key={product.id}
               name={product.name}
               price={product.price}
+              addToCart={addToCart}
             />
           ))}
         </div>
