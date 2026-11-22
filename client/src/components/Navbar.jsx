@@ -1,17 +1,24 @@
-function Navbar(props) {
+import { Link } from "react-router-dom";
+
+function Navbar({ cartCount }) {
   return (
-    <nav className="flex items-center justify-between bg-slate-900 px-8 py-5 text-white">
-      <h1 className="text-2xl font-bold">ShopSphere</h1>
+    <nav className="flex flex-wrap items-center justify-between gap-4 bg-slate-900 px-8 py-5 text-white">
+      <Link to="/" className="text-2xl font-bold">
+        ShopSphere
+      </Link>
 
-      <div className="flex items-center gap-6">
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">Categories</a>
-        <a href="#">Login</a>
+      <div className="flex flex-wrap items-center gap-6">
+        <Link to="/" className="hover:text-gray-300">
+          Home
+        </Link>
 
-        <span className="rounded-lg bg-white px-4 py-2 font-semibold text-slate-900">
-          Cart: {props.cartCount}
-        </span>
+        <Link to="/cart" className="hover:text-gray-300">
+          Cart ({cartCount})
+        </Link>
+
+        <a href="#" className="hover:text-gray-300">
+          Login
+        </a>
       </div>
     </nav>
   );
