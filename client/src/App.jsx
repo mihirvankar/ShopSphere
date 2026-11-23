@@ -14,6 +14,7 @@ function App() {
       id: 1,
       name: "iPhone",
       price: 70000,
+      category: "Electronics",
       description:
         "Experience powerful performance, a premium design, and an advanced camera with this iPhone.",
     },
@@ -21,6 +22,7 @@ function App() {
       id: 2,
       name: "Keyboard",
       price: 1500,
+      category: "Accessories",
       description:
         "A comfortable keyboard designed for everyday typing, study, and work.",
     },
@@ -28,6 +30,7 @@ function App() {
       id: 3,
       name: "Headphones",
       price: 2000,
+      category: "Accessories",
       description:
         "Enjoy your favourite music with comfortable headphones and clear sound.",
     },
@@ -35,6 +38,7 @@ function App() {
       id: 4,
       name: "Laptop",
       price: 55000,
+      category: "Electronics",
       description:
         "A versatile laptop for productivity, development, entertainment, and daily tasks.",
     },
