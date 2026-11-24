@@ -7,22 +7,42 @@ import ProductCard from "../components/ProductCard";
 function Home({ products, addToCart }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortOption, setSortOption] = useState("default");
 
   const categories = [
     "All",
     ...new Set(products.map((product) => product.category)),
   ];
 
-  const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.name
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
+  const filteredProducts = products
+    .filter((product) => {
+      const matchesSearch = product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
 
-    const matchesCategory =
-      selectedCategory === "All" || product.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === "All" || product.category === selectedCategory;
 
-    return matchesSearch && matchesCategory;
-  });
+      return matchesSearch && matchesCategory;
+    })
+    .sort((a, b) => {
+      switch (sortOption) {
+        case "price-low":
+          return a.price - b.price;
+
+        case "price-high":
+          return b.price - a.price;
+
+        case "name-asc":
+          return a.name.localeCompare(b.name);
+
+        case "name-desc":
+          return b.name.localeCompare(a.name);
+
+        default:
+          return 0;
+      }
+    });
 
   return (
     <>
@@ -31,13 +51,27 @@ function Home({ products, addToCart }) {
       <section className="bg-gray-50 px-8 py-12">
         <h1 className="mb-6 text-3xl font-bold">Our Products</h1>
 
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-          className="mb-6 w-full max-w-md rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-slate-900"
-        />
+        <div className="mb-6 flex flex-wrap gap-4">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            className="w-full max-w-md rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus:border-slate-900"
+          />
+
+          <select
+            value={sortOption}
+            onChange={(event) => setSortOption(event.target.value)}
+            className="rounded-lg border border-gray-300 bg-white px-4 py-3"
+          >
+            <option value="default">Default Sorting</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+            <option value="name-desc">Name: Z to A</option>
+          </select>
+        </div>
 
         <div className="mb-8 flex flex-wrap gap-3">
           {categories.map((category) => (
@@ -54,6 +88,10 @@ function Home({ products, addToCart }) {
             </button>
           ))}
         </div>
+
+        <p className="mb-5 text-sm text-gray-500">
+          Showing {filteredProducts.length} products
+        </p>
 
         {filteredProducts.length === 0 ? (
           <div className="py-10 text-center">
