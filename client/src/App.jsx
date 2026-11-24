@@ -15,6 +15,8 @@ function App() {
       name: "iPhone",
       price: 70000,
       category: "Electronics",
+      image:
+        "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600",
       description:
         "Experience powerful performance, a premium design, and an advanced camera with this iPhone.",
     },
@@ -23,6 +25,8 @@ function App() {
       name: "Keyboard",
       price: 1500,
       category: "Accessories",
+      image:
+        "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600",
       description:
         "A comfortable keyboard designed for everyday typing, study, and work.",
     },
@@ -31,6 +35,8 @@ function App() {
       name: "Headphones",
       price: 2000,
       category: "Accessories",
+      image:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600",
       description:
         "Enjoy your favourite music with comfortable headphones and clear sound.",
     },
@@ -39,6 +45,8 @@ function App() {
       name: "Laptop",
       price: 55000,
       category: "Electronics",
+      image:
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",
       description:
         "A versatile laptop for productivity, development, entertainment, and daily tasks.",
     },

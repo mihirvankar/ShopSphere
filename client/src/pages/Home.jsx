@@ -107,6 +107,7 @@ function Home({ products, addToCart }) {
                 <ProductCard
                   name={product.name}
                   price={product.price}
+                  image={product.image}
                   addToCart={() => addToCart(product)}
                 />
 
