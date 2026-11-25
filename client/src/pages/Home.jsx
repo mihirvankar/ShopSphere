@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import HeroSection from "../components/HeroSection";
 import ProductCard from "../components/ProductCard";
 
-function Home({ products, addToCart }) {
+function Home({ products, addToCart, wishlist, toggleWishlist }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOption, setSortOption] = useState("default");
@@ -29,16 +29,12 @@ function Home({ products, addToCart }) {
       switch (sortOption) {
         case "price-low":
           return a.price - b.price;
-
         case "price-high":
           return b.price - a.price;
-
         case "name-asc":
           return a.name.localeCompare(b.name);
-
         case "name-desc":
           return b.name.localeCompare(a.name);
-
         default:
           return 0;
       }
@@ -109,6 +105,8 @@ function Home({ products, addToCart }) {
                   price={product.price}
                   image={product.image}
                   addToCart={() => addToCart(product)}
+                  isWishlisted={wishlist.includes(product.id)}
+                  onToggleWishlist={() => toggleWishlist(product.id)}
                 />
 
                 <p className="mt-2 text-sm text-gray-500">
