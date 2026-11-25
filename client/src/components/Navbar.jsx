@@ -7,7 +7,7 @@ function Navbar({ cartCount, wishlistCount }) {
         ShopSphere
       </Link>
 
-      <div className="flex flex-wrap items-center gap-6">
+      <div className="flex flex-wrap items-center gap-5">
         <Link to="/" className="hover:text-gray-300">
           Home
         </Link>
@@ -20,9 +20,16 @@ function Navbar({ cartCount, wishlistCount }) {
           Cart ({cartCount})
         </Link>
 
-        <a href="#" className="hover:text-gray-300">
+        <Link to="/login" className="hover:text-gray-300">
           Login
-        </a>
+        </Link>
+
+        <Link
+          to="/register"
+          className="rounded-lg bg-white px-4 py-2 font-semibold text-slate-900 hover:bg-gray-200"
+        >
+          Register
+        </Link>
       </div>
     </nav>
   );
