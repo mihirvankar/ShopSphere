@@ -30,6 +30,10 @@ function Navbar({ cartCount, wishlistCount }) {
         >
           Register
         </Link>
+
+        <Link to="/profile" className="hover:text-gray-300">
+          Profile
+        </Link>
       </div>
     </nav>
   );
